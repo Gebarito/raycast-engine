@@ -88,7 +88,7 @@ void drawRays2D() {
         float disV = 9999999, vx = px, vy = py;
         float nTan = -tan(ra);
         if (ra > P2 && ra < P3) {//left
-            rx = (((int)px >> 6) << 6) - 0.0001;
+            rx = (((int)px >> 6) << 6) - 0.0001; //arredonda pro que tiver mais proximo de 64.
             ry = (px - rx) * nTan + py;
             xo = -64;
             yo = -xo * nTan;
