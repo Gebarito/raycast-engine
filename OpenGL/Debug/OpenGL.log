@@ -1,0 +1,38 @@
+﻿  Application.cpp
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(18,18): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(34,17): warning C4244: 'return': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(41,12): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(42,29): warning C4305: '+=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(43,34): warning C4305: '-=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(49,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(51,40): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(57,40): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(89,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(91,40): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(97,40): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(139,24): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(139,20): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(140,24): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(140,20): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(147,25): warning C4305: '+=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(149,25): warning C4305: '-=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(150,21): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(160,33): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(161,38): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(164,17): warning C4305: '+=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(165,33): warning C4305: '+=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(166,38): warning C4305: '-=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(172,20): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(173,21): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(230,22): warning C4305: '-=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(232,29): warning C4305: '+=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(233,27): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(234,27): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(239,22): warning C4305: '+=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(241,29): warning C4305: '-=': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(242,27): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(243,27): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(250,23): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(251,22): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(252,34): warning C4305: 'argumento': truncamento de 'double' para 'GLclampf'
+  OpenGL.vcxproj -> C:\workspace\OpenGL\Debug\OpenGL.exe

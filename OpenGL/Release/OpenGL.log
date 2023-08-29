@@ -1,0 +1,17 @@
+﻿  Application.cpp
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(4,18): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(20,20): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(21,21): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(33,46): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(34,20): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(38,64): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(39,91): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(39,54): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(40,54): warning C4244: 'argumento': conversão de 'float' para 'GLint', possível perda de dados
+C:\workspace\OpenGL\OpenGL\src\Application.cpp(81,34): warning C4305: 'argumento': truncamento de 'double' para 'GLclampf'
+  Gerando código
+  2 of 5 functions (40.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finalizada a geração de código
+  OpenGL.vcxproj -> C:\workspace\OpenGL\Release\OpenGL.exe
