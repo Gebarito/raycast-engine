@@ -8,6 +8,7 @@
 #define P3 3*PI/2
 #define DR 0.0174533
 
+
 /*
     PORTE DA ENGINE DE RAYCAST DO 3DSAGE FEITA EM FREEGLUT PARA GLFW
     ENGINE E LOGICA ORIGINAl: https://www.youtube.com/watch?v=gYRrGTC7GtA
@@ -15,7 +16,8 @@
 
 float px, py; // player position
 float pdx, pdy, pa; //delta x, y e angulo
-float speed = 0.3; // velocidade de movimento
+float speed = 25; // velocidade de movimento
+float rotationSpeed = 2.5f; //velocidade da rotacao da camera
 
 int mapX = 8, mapY = 8;
 int screenWidth = 800, screenHeight = 600; // nova resolução
@@ -30,9 +32,22 @@ int map[] = {
     1, 1, 1, 1, 1, 1, 1, 1
 };
 
+double currentFrame = 0.0;
+double lastFrame = 0.0;
+double deltaTime = 0.0;
+
 float dist(float ax, float ay, float bx, float by, float ang) {
     return (sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)));
 }
+
+//map isn`t function as mat
+/*
+void RNGMap() {
+    for (int i = 0; i < mapX; i++) {
+        map[i] = 0;
+    }
+}
+*/
 
 void drawRays2D() {
     int r, mx, my, mp, dof;
@@ -147,7 +162,7 @@ void drawRays2D() {
             ca += 2 * PI;
         if (ca > 2 * PI)
             ca -= 2 * PI;
-        disT = disT * cos(ca); //fisheye effect fix
+        disT = disT * cos(ca); //fisheye effect fix, this also cause some bug when trying to render objects beyond the wall
         float lineH = (64 * 320) / disT;
         if (lineH > 320) {
             lineH = 320;
@@ -210,6 +225,7 @@ void drawPlayer() {
     glEnd();
 }
 
+/*
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     // Atualize a posição do jogador com base na tecla pressionada
     if (key == GLFW_KEY_W) {
@@ -244,7 +260,74 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         }
     }
 }
+*/
 
+bool isOnCollision(double futurePlayerX, double futurePlayerY) {
+    int currentTileX = (int)(px / 64);
+    int currentTileY = (int)(py / 64);
+
+    int futureTileX = (int)(futurePlayerX / 64);
+    int futureTileY = (int)(futurePlayerY / 64);
+
+    if (map[futureTileY * mapX + currentTileX] == 1 ||
+        map[currentTileY * mapX + futureTileX] == 1 ||
+        map[futureTileY * mapX + futureTileX] == 1) {
+        return true; // O jogador está em uma colisão
+    }
+
+    return false;
+}
+
+
+void updateDeltaTime() {
+    currentFrame = glfwGetTime();
+    deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+}
+
+void updatePlayerMovement(GLFWwindow* window) {
+    double speedPerSecond = speed * deltaTime;
+    double rotationSpeedPerSecond = rotationSpeed * deltaTime;
+    
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        double futurePlayerX = px + pdx * speedPerSecond;
+        double futurePlayerY = py + pdy * speedPerSecond;
+
+        if (!isOnCollision(futurePlayerX, futurePlayerY)) {
+            px = futurePlayerX;
+            py = futurePlayerY;
+        }
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        double futurePlayerX = px - pdx * speedPerSecond;
+        double futurePlayerY = py - pdy * speedPerSecond;
+
+        if (!isOnCollision(futurePlayerX, futurePlayerY)) {
+            px = futurePlayerX;
+            py = futurePlayerY;
+        }
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        pa -= rotationSpeedPerSecond; // Rotacione o jogador com base no tempo decorrido
+        if (pa < 0)
+            pa += 2 * PI;
+        pdx = cos(pa) * 5;
+        pdy = sin(pa) * 5;
+    }
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        pa += rotationSpeedPerSecond; // Rotacione o jogador com base no tempo decorrido
+        if (pa > 2 * PI)
+            pa -= 2 * PI;
+        pdx = cos(pa) * 5;
+        pdy = sin(pa) * 5;
+    }
+}
+
+void resize(GLFWwindow* window, int width, int height) {
+    glfwSetWindowSize(window, width, height);
+}
 
 void init() {
     px = screenHeight / 2;
@@ -258,8 +341,11 @@ int main(void) {
 
     if (!glfwInit())
         return -1;
-
+    
     window = glfwCreateWindow(screenWidth, screenHeight, "Raycast engine", NULL, NULL); // Use a nova resolução
+    
+    glfwSetWindowPos(window,150,150);
+
     if (!window) {
         glfwTerminate();
         return -1;
@@ -267,16 +353,19 @@ int main(void) {
 
     glfwMakeContextCurrent(window);
 
-    glfwSetKeyCallback(window, key_callback);
     init();
+    //glfwSetKeyCallback(window, key_callback);
 
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
         //--------- Render here
         //init();
         drawMap2D();
+        updateDeltaTime();
+        updatePlayerMovement(window);
         drawPlayer();
         drawRays2D();
+        resize(window, 1024, 512);
         //--------
         glfwSwapBuffers(window);
         glfwPollEvents();
