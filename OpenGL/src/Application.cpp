@@ -10,8 +10,7 @@
 
 
 /*
-    PORTE DA ENGINE DE RAYCAST DO 3DSAGE FEITA EM FREEGLUT PARA GLFW
-    ENGINE E LOGICA ORIGINAl: https://www.youtube.com/watch?v=gYRrGTC7GtA
+    INSPIRED BY: https://www.youtube.com/watch?v=gYRrGTC7GtA
 */
 
 float px, py; // player position
@@ -20,7 +19,7 @@ float speed = 25; // velocidade de movimento
 float rotationSpeed = 2.5f; //velocidade da rotacao da camera
 
 int mapX = 8, mapY = 8;
-int screenWidth = 800, screenHeight = 600; // nova resoluÁ„o
+int screenWidth = 800, screenHeight = 600; // nova resolu√ß√£o
 int map[] = {
     1, 1, 1, 1, 1, 1, 1, 1,
     1, 0, 0, 1, 0, 0, 0, 1,
@@ -227,7 +226,7 @@ void drawPlayer() {
 
 /*
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    // Atualize a posiÁ„o do jogador com base na tecla pressionada
+    // Atualize a posi√ß√£o do jogador com base na tecla pressionada
     if (key == GLFW_KEY_W) {
         if (action == GLFW_PRESS || action == GLFW_REPEAT) {
             px += pdx * speed;
@@ -272,7 +271,7 @@ bool isOnCollision(double futurePlayerX, double futurePlayerY) {
     if (map[futureTileY * mapX + currentTileX] == 1 ||
         map[currentTileY * mapX + futureTileX] == 1 ||
         map[futureTileY * mapX + futureTileX] == 1) {
-        return true; // O jogador est· em uma colis„o
+        return true; // O jogador est√° em uma colis√£o
     }
 
     return false;
@@ -333,7 +332,7 @@ void init() {
     px = screenHeight / 2;
     py = screenWidth / 2;
     glClearColor(0.3, 0.3, 0.3, 0);
-    glOrtho(0, screenWidth, screenHeight, 0, -1, 1); // A matriz de projeÁ„o È configurada para a nova resoluÁ„o
+    glOrtho(0, screenWidth, screenHeight, 0, -1, 1); // A matriz de proje√ß√£o √© configurada para a nova resolu√ß√£o
 }
 
 int main(void) {
@@ -342,7 +341,7 @@ int main(void) {
     if (!glfwInit())
         return -1;
     
-    window = glfwCreateWindow(screenWidth, screenHeight, "Raycast engine", NULL, NULL); // Use a nova resoluÁ„o
+    window = glfwCreateWindow(screenWidth, screenHeight, "Raycast engine", NULL, NULL); // Use a nova resolu√ß√£o
     
     glfwSetWindowPos(window,150,150);
 
